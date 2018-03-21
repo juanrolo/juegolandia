@@ -7,7 +7,6 @@ package mario;
 import java.applet.*;
 import java.awt.*;
 
-
 /**
  *
  */
