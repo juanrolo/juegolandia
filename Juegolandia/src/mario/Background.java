@@ -158,5 +158,4 @@ public class Background {
 				g, img, 0, 0, x, map.getDisplayableHeight(),
 				x, height, 0, height, alpha);
 		}
-	
 }
