@@ -326,4 +326,82 @@ public abstract class Loader {
 	/**
 	 * Remove a previous loaded image.
 	 */
-	
+	public void removeObject(String name){
+		loaded.remove(name);
+	}
+	/**
+	 * Remove all the loaded images.
+	 */
+	public void removeAllObjects(){
+		loaded.clear();
+	}
+	public File getFile(String name){
+		try{
+			URL url=getClass().getClassLoader().getResource(relativePath+name);
+			return new File(url.getPath());
+		}catch (Exception e){
+		 System.err.println("Error loanding a file "+name);
+		//e.printStackTrace();
+		}
+	return null;
+	}
+public String getRelativePath(){
+	return relativePath;
+}
+public String getPath(){
+	return packageDirectory+relativePath;
+}
+public String getPackagePath(){
+	return packageDirectory;
+}
+public File getLoader(){
+	return loader;
+}
+public void changeName(String name, String newName){
+	loaded.put(newName, loaded.get(name));
+	removeObject(name);
+}
+public void putObject(String name, Object object){
+	loaded.put(name, object);
+}
+
+/**
+ *Check if the name of the <code>f</code> have
+ *any of the extensions indicated in the <code>ArrayList
+ *validExtensions</code>.
+ *
+ *@param f File to check.
+ *@return <code>true</code> if find a extension
+ *or <code>false</code> if not..
+ */
+
+public boolean hasValidExtension(File f){
+	for(int i=0; i<validExtensions.size(); i++){
+		String ext = "."+validExtensions.get(i).toLowerCase();
+		if(ext.equals(".")){
+			return true;
+		}
+		if (f.getName().toLowerCase().lastIndexOf(ext)+ext.length() == f.getName().length()){
+			//the file extension is allowed..
+			return true;
+		}
+	}
+	return false;
+}//end of hasValidExtension(File);
+
+/**
+ * Checks if exists the loader file or directory.
+ * 
+ * @return <<code>true</code> if exists
+ * or <code>false</code> if not.
+ *
+ */
+
+public boolean existsLoader(){
+	if(loader!=null)
+		return loader.exists();
+	return false;
+}
+}//end of loader class.
+
+//end of Loader.java	

@@ -179,4 +179,99 @@ public class Juego {
                  }
              }
              else //Si la ficha se coloca incorrectamente el juego termina.
-                
+             {
+            	 m_mensaje = 4;
+            	 m_jugando = false;
+             }
+        }
+        return resultado;
+    }
+    /**
+    *Crea un thread donde se ejecutará JugandorMaquina para que calcule la jugada.
+    * @param jugador JugandorMaquina que está jugando.
+    * @return Si todo ha ido correctamente devuelve 0.
+    */
+    public int jugandaMaquina(JugadorMaquina jugador)
+    {
+    	int columna;
+    	int resultado = 0;
+    	
+    	//Si es el turno del jugador.
+    	if(m_turno == jugador.m_jugador)
+    	{
+    		//Se duplica el tablero para que no se pueda modificar desde la clase JugadorMaquina.
+    		jugador.isDone(false);
+    		jugador.asignarTablero(m_tablero);
+    		
+    		//Se espera e inicia el tread para que el jugador máquina calcule la jugada.
+    		Thread myThread = new Thread(jugador);
+    		myThread.start();
+    		
+    		//Se espera al thread como mucho el tiempo especificado en m_tiempoMaximo.
+    		long timeStart = System.currentTimeMillis();
+    		long elapsed = 0;
+    		
+    		while(!jugador.isDone() && (elapsed < m_tiempoMaximo))
+    		{
+    			elapsed = System.currentTimeMillis() - timeStart;
+    		}
+    		
+    		//Se obtiene la jugada obtenida por JugadorMaquina
+    		columna = jugador.m_columna;
+    		
+    		//Si no ha finalizado el thread se finaliza
+    		myThread = null;
+    		
+    		//Introduce la ficha en el tablero 
+    		resultado = m_tablero.ponerficha(columna, jugador.m_jugador);
+    		
+    		//Si la colocación de la ficha ha sido correcta
+    		if(resultado == 0)
+    		{
+    			//comprueba si ha ganado el jugador
+    			if(m_tablero.cuatroEnRaya() !=0)
+    		}
+    		{
+    			m_mensaje = 2;
+    			m_jugando = false;
+    		}
+    		//comprueba si hay empate
+    		if(m_tablero.tableroLleno())
+    		{
+    		  m_mensaje = 3;
+    		  m_jugando = false;
+    		
+    		}
+    		
+    	}
+    	else //Si la ficha se coloca correctament el juego termina.
+    	{
+    		m_mensaje = 4;
+    		m_jugando = false;
+    	}
+    		
+ }
+return resultado;    
+}
+/**
+*Cambia el turno de jugador.Se utiliza después de cada jugada.
+*/
+public void cambiaTurno()
+{
+	if(m_turno == 1)
+		m_turno = 2;
+	else 
+		m_turno = 1;
+	m_mensaje = 1;
+}
+/**
+*Reinicializa todas las variables para empezar un nuevo juego.
+*/
+public void reiniciarJuego()
+{
+	m_tablero.limpiarTablero();
+	m_turno = 1;
+	m_mensaje = 0;
+	m_jugando = false;
+}
+}
