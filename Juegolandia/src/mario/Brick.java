@@ -106,7 +106,7 @@ public class Brick extends WorldObject {
 				p.getSpeed().setX(0);
 				p.setRightWall((int)x+width);
 			} else
-			// Colisiones del eje Y
+			// Colisiones del eje Y 
 			if (p.getHead().intersects(getFoot()) && p.isRising()) {
 				// System.out.println(”Debajo del brick”);
 				if (!moving) {
