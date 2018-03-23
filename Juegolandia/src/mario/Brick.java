@@ -133,5 +133,5 @@ public class Brick extends WorldObject {
 		super.setY(yPos);
 		initY = yPos;
 	}
-
+ 
 }
