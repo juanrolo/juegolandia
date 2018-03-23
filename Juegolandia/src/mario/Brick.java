@@ -134,4 +134,4 @@ public class Brick extends WorldObject {
 		initY = yPos;
 	}
  
-}
+} 
