@@ -45,4 +45,4 @@ import java.applet.*;
        changelmg = true;
        public void collision(Sprite s) {
          // prueba la diferencia entre 95 // utilizar un mismo sonido 96 // y utilizar copias de ese sonido 97 if (!effect) f 98 stage.getSoundsLoader().play( 99 "coin.wav", false); 100 audio[indexAudio].play(); 101 indexAudio = (indexAudio+1)%audio.length; 102 setlmages(imgAnimation, 0, 7); 103 effect = true; 104 speed.setY(2); 105 1 106 1 107 108 1 // fin de la clase Coin 109 110 // fin de Coin.java   
-        Page 2
+        //Page 2
