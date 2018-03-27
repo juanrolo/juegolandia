@@ -230,7 +230,7 @@ public class Juego {
     		{
     			//comprueba si ha ganado el jugador
     			if(m_tablero.cuatroEnRaya() !=0)
-    		}
+ //   		} ERROR: Almudena.
     		{
     			m_mensaje = 2;
     			m_jugando = false;
