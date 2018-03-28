@@ -513,4 +513,88 @@ public abstract class Player extends WorldObject {
 	}
 
 	// SET m�todos --------------------------------------------------
+	public void setXStage(int s){
+		if(s== MOVING_RIGHT ||
+				s== MOVING_LEFT ||
+				s == STOPPED){
+			xState = s;
+		}
+	}
 	
+	public void setYState(int s){
+		if( s == NOT_JUMPING ||
+				s== RISING ||
+				s== FALLING){
+			yState = s;
+		}
+	}
+	
+	public void setFloor(int floor){
+		this.floor= floor;
+	}
+	
+	public void setRightWall(int wall){
+		x = wall-(int)bounds.get(0).getX();
+	}
+	
+	public void setLeftWall(int wall){
+		x=wall-width+(int)bounds.get(0).getX();
+	}
+	// fin de SET métodos --------------------------
+	
+	
+	//Boolean metodos
+	public boolean isRising(){
+		return yState == RISING;
+	}
+	
+	public boolean isFalling(){
+		return yState == FALLING;
+	}
+	
+	public boolean isRunning(){
+		return running;
+	}
+	
+	public boolean isCrouching(){
+		return crouching;
+	}
+	
+	public boolean isWalkingRight(){
+		return xState == MOVING_RIGHT;
+	}
+	
+	public boolean isWalkingLeft(){
+		return xState == MOVING_LEFT;
+	}
+	// fin de los métodos booleanos ------------------
+	
+	public synchronized void keyPressed(KeyEvent e){
+		if (e.getKeyCode() == keyJump){
+			keyJumpDown = true;
+		} else if (e.getKeyCode() == keyRight){
+			keyRightDown = true;
+		} else if (e.getKeyCode() == keyLeft){
+			keyLeftDown = true;
+		} else if (e.getKeyCode() == keyRun){
+			keyRunDown = true;
+		} else if (e.getKeyCode() == keyCrouch){
+			keyCrouchDown = true;
+		}
+	}
+	
+	public synchronized void keyReleased (KeyEvent e){
+		if (e.getKeyCode() == keyJump){
+			keyJumpDown = false;
+		} else if (e.getKeyCode() == keyRight){
+			keyRightDown = false;
+		} else if (e.getKeyCode()== keyLeft){
+			keyLeftDown = false;
+		} else if (e.getKeyCode()== keyRun){
+			keyRunDown = false;
+		} else if (e.getKeyCode()== keyCrouch){
+			keyCrouchDown = false;
+		}
+	}
+	
+}//FIN DEL PROGRAMA
