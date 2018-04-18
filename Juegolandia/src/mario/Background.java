@@ -72,7 +72,7 @@ public class Background {
 		if (height == IMG_DIMENSIONS) {
 			height = img.getHeight();
 		}
-		if (img.getWidht() != width || 
+		if (img.getWidth() != width || 
 				img.getHeight() != height) {
 			this.img = stage.getImagesEffects().
 					returnRescaleImg(img, width, height);
@@ -122,7 +122,7 @@ public class Background {
 	public void paint(Graphics g){
 		int X=(int)x%width;
 		int Y=(int)y%height;
-		int screenWidth=map.getDisplayable();
+		int screenWidth=map.getDisplayableWidth();
 		if (X!=0){
 			if(X>0){
 				X-=width;
@@ -148,7 +148,7 @@ public class Background {
 		stage.getImagesEffects().paintAlphaImg(
 				g, img, x, y, map.getDisplayableWidth(),
 				map.getDisplayableHeight(), 0, 0, 
-				map.getDisplayableWidht()-x,
+				map.getDisplayableWidth()-x,
 				map.getDisplayableHeight()-y,
 				alpha);
 	}

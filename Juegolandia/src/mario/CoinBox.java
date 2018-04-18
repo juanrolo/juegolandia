@@ -76,7 +76,7 @@ public class CoinBox extends WorldObject {
 	public void act(){
 		if (moving){
 			move();
-			speed.setY(speed.getAcurateY()-((Main)stage).getGravity());
+			speed.setY(speed.getAccurateY()-((Main)stage).getGravity());
 			if (y>= initY){
 				speed.setY(0);
 				y = initY;
