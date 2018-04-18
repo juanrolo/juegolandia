@@ -239,7 +239,7 @@ public class Interfaz extends javax.swing.JFrame {
 	}// GEN-LAST:event_jPanel1MouseMoved
 
 	// Esta funciÃ³n inserta la ficha en el tablero cuando el jugador hace clic
-	private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel1MouseClicked
+/*	private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel1MouseClicked
 		float anchoCasilla, altoCasilla, margenAncho;
 		int columna;
 
@@ -284,7 +284,7 @@ public class Interfaz extends javax.swing.JFrame {
 			}
 		}
 	}// GEN-LAST:event_jPanel1MouseMoved
-
+*/
 	// Esta función inserta la ficha en el tablero cuando el jugador hace clic
 	private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel1MouseClicked
 		float anchoCasilla, altoCasilla, margenAncho;

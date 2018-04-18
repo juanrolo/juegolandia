@@ -191,7 +191,7 @@ public class Juego {
     * @param jugador JugandorMaquina que está jugando.
     * @return Si todo ha ido correctamente devuelve 0.
     */
-    public int jugandaMaquina(JugadorMaquina jugador)
+    public int jugadaMaquina(JugadorMaquina jugador)
     {
     	int columna;
     	int resultado = 0;
@@ -223,7 +223,7 @@ public class Juego {
     		myThread = null;
     		
     		//Introduce la ficha en el tablero 
-    		resultado = m_tablero.ponerficha(columna, jugador.m_jugador);
+    		resultado = m_tablero.ponerFicha(columna, jugador.m_jugador);
     		
     		//Si la colocación de la ficha ha sido correcta
     		if(resultado == 0)
